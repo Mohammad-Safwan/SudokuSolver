@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace SudokuSolverWindowsForms
     public partial class Form1 : Form
     {
         OpenFileDialog openFile = new OpenFileDialog();
+        int[,] sudokuBoard;
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +46,16 @@ namespace SudokuSolverWindowsForms
         {
             openFile.Filter = "Text files (*.txt)|*.txt";
             //openFile.
-            openFile.ShowDialog();
+            if(openFile.ShowDialog() == DialogResult.OK)
+            {
+                //MessageBox.Show(openFile.FileName);
+                
+            }
+            else
+            {
+                MessageBox.Show("File was not selected");
+                Close();
+            }
         }
     }
 }
