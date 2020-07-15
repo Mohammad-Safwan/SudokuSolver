@@ -67,8 +67,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SudokuDisplay.cs" />
+    <Compile Include="Helpers\SudokuFileInput.cs" />
+    <Compile Include="Helpers\SudokuMapper.cs" />
+    <Compile Include="Helpers\SudokuStateManager.cs" />
+    <Compile Include="Model\SudokuMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\IStrategy.cs" />
+    <Compile Include="Strategies\MarkupStrategy.cs" />
+    <Compile Include="Strategies\NakedPairStrategy.cs" />
+    <Compile Include="Strategies\SudokuSolverEngine.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,5 +115,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

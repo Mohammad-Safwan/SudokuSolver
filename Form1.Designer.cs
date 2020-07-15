@@ -39,11 +39,12 @@
             this.BtnFileUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnFileUpload.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFileUpload.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.BtnFileUpload.Location = new System.Drawing.Point(254, 12);
+            this.BtnFileUpload.Location = new System.Drawing.Point(286, 12);
             this.BtnFileUpload.Name = "BtnFileUpload";
-            this.BtnFileUpload.Size = new System.Drawing.Size(243, 56);
+            this.BtnFileUpload.Size = new System.Drawing.Size(243, 37);
             this.BtnFileUpload.TabIndex = 0;
             this.BtnFileUpload.Text = "Click To Select Text File";
+            this.BtnFileUpload.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnFileUpload.UseVisualStyleBackColor = false;
             this.BtnFileUpload.Click += new System.EventHandler(this.BtnFileUpload_Click);
             // 

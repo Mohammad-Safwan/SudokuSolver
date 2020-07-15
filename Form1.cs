@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SudokuSolverWindowsForms.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,24 +23,7 @@ namespace SudokuSolverWindowsForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*Label[,] labels = new Label[9, 9];
-
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    labels[i, j] = new Label();
-                    //labels[i, j].Top = 20;
-                    //labels[i, j].Left = 30;
-                    labels[i, j].Location = new Point((i + 2) * 30, (j + 2) * 30);
-                    labels[i, j].Width = 20;
-                    labels[i, j].Height = 20;
-                    labels[i, j].BackColor = (i >= 0 && i<3 && j>=0 && j<3) ? SystemColors.ActiveCaption : SystemColors.ActiveCaption;
-                    labels[i, j].Text = String.Format("{0}", i + j);
-                    labels[i, j].TextAlign = ContentAlignment.MiddleCenter;
-                    this.Controls.Add(labels[i, j]);
-                }
-            }*/
+            /**/
         }
 
         private void BtnFileUpload_Click(object sender, EventArgs e)
@@ -48,13 +32,36 @@ namespace SudokuSolverWindowsForms
             //openFile.
             if(openFile.ShowDialog() == DialogResult.OK)
             {
-                //MessageBox.Show(openFile.FileName);
-                
+                SudokuFileInput sudokuFileInput = new SudokuFileInput();
+                sudokuBoard = sudokuFileInput.ReadFile(openFile.FileName);
+                //MessageBox.Show(sudokuBoard[0,0].ToString() + " " + sudokuBoard[7,7].ToString());
+                DisplayOnForm(sudokuBoard, 15);
             }
             else
             {
                 MessageBox.Show("File was not selected");
                 Close();
+            }
+        }
+
+        public void DisplayOnForm(int[,] board, int position)
+        {
+            Label[,] labels = new Label[9, 9];
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    labels[i, j] = new Label();
+                    labels[i, j].Location = new Point((i + 2 + position) * 30, (j + 2) * 30);
+                    labels[i, j].Width = 20;
+                    labels[i, j].Height = 20;
+                    labels[i, j].ForeColor = Color.White;
+                    labels[i, j].BackColor = (board[i, j] == 0) ? Color.Red : Color.Green;
+                    labels[i, j].Text = board[i, j].ToString();
+                    labels[i, j].TextAlign = ContentAlignment.MiddleCenter;
+                    this.Controls.Add(labels[i, j]);
+                }
             }
         }
     }
